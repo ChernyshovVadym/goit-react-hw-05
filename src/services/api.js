@@ -9,11 +9,30 @@ const options = {
   },
 };
 
-export const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async (page) => {
   const { data } = await axios.get(
-    "/3/trending/movie/day?language=en-US",
+    `/3/trending/movie/day?language=en-US&page=${page}`,
     options
   );
 
   return data;
 };
+
+export const fetchSearchMovie = async (query, page) => {
+  const { data } = await axios.get(
+    `/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`,
+
+    options
+  );
+
+  return data;
+};
+
+// export const fetchSearchMovie = async () => {
+//   const { data } = await axios.get(
+//     "/3/search/movie?include_adult=false&language=en-US&page=1",
+//     options
+//   );
+
+//   return data;
+// };

@@ -1,9 +1,5 @@
-// const LoadMoreBtn = ({ onClick }) => {
-//   return (
-//     <button className={css.btn} onClick={onClick}>
-//       Load More
-//     </button>
-//   );
-// };
+const LoadMoreBtn = ({ onLoadMore }) => {
+  return <button onClick={onLoadMore}>Load More</button>;
+};
 
-// export default LoadMoreBtn;
+export default LoadMoreBtn;
