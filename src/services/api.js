@@ -28,10 +28,15 @@ export const fetchSearchMovie = async (query, page) => {
   return data;
 };
 
-export const fetchSearchId = async (id) => {
-  const { data } = await axios.get(`/3/movie/${id}?language=en-US`, options);
+// export const fetchSearchId = async (id) => {
+//   const { data } = await axios.get(`/3/movie/${id}?language=en-US`, options);
 
-  return data;
+//   return data;
+// };
+export const fetchSearchId = async (id) => {
+  const url = `/3/movie/${id}?language=en-US`;
+  const response = await axios.get(url, options);
+  return response.data;
 };
 
 export const fetchCastById = async (id) => {

@@ -13,30 +13,47 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(false);
   const [movie, setMovie] = useState({});
   const params = useParams();
-  console.log(params);
+  const movieId = params.movieId;
+  console.log("params", movieId);
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
         setError(false);
         setLoading(true);
-        const data = await fetchSearchId(params.movieId);
-
-        console.log(data);
+        const data = await fetchSearchId(movieId);
         setMovie(data);
       } catch (error) {
         setError(error);
-        console.log(error);
       } finally {
         setLoading(false);
       }
     };
     fetchMovie();
-  }, [params.movieId]);
+  }, [movieId]);
+
+  // useEffect(() => {
+  //   const fetchMovie = async () => {
+  //     try {
+  //       setError(false);
+  //       setLoading(true);
+  //       const data = await fetchSearchId(movieId);
+
+  //       console.log("data", data);
+  //       setMovie(data);
+  //     } catch (error) {
+  //       setError(error);
+  //       console.log(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchMovie();
+  // }, [movieId]);
 
   return (
     <div>
-      {<Movie movie={movie} />}
+      <Movie movie={movie} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {/* <Link to="cast">Movie Cast</Link>
