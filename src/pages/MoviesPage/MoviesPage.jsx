@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { fetchSearchMovie } from "../../services/api";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import MoviesList from "../../components/MovieList/MoviesList";
+import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
 
 const MoviesPage = () => {
   const [error, setError] = useState(false);
@@ -10,6 +12,7 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [isVisible, setVisible] = useState(true);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -29,19 +32,22 @@ const MoviesPage = () => {
     fetchMovies();
   }, [query, page]);
 
-  const LoadMorePages = () => {
+  const onLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
   const onSeacrh = (value) => {
     setQuery(value);
+    setVisible(true);
   };
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar onSubmit={onSeacrh} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
+      {movies.length > 0 && <MoviesList movies={movies} />}
+      {isVisible && !loading && <LoadMoreBtn onLoadMore={onLoadMore} />}
     </div>
   );
 };

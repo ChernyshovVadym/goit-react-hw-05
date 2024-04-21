@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { fetchCastById } from "../../services/api";
+import { fetchReviewsById } from "../../services/api";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
-import CastList from "../CastList/CastList";
+// import Reviews from "../Reviews/Reviews";
+import ReviewsList from "../ReviewsList/ReviewsList";
 
-const MovieCast = () => {
-  const [casts, setCast] = useState([]);
+const MovieReviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const params = useParams();
@@ -16,10 +17,10 @@ const MovieCast = () => {
       try {
         setError(false);
         setLoading(true);
-        const data = await fetchCastById(params.movieId);
+        const data = await fetchReviewsById(params.movieId);
 
         // console.log(data);
-        setCast(data.results);
+        setReviews(data.results);
       } catch (error) {
         setError(error);
         // console.log(error);
@@ -32,11 +33,11 @@ const MovieCast = () => {
   }, [params.movieId]);
   return (
     <div>
-      <CastList casts={casts} />
+      <ReviewsList reviews={reviews} />
       {error && <ErrorMessage />}
       {loading && <Loader />}
     </div>
   );
 };
 
-export default MovieCast;
+export default MovieReviews;

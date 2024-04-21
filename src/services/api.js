@@ -28,11 +28,26 @@ export const fetchSearchMovie = async (query, page) => {
   return data;
 };
 
-// export const fetchSearchMovie = async () => {
-//   const { data } = await axios.get(
-//     "/3/search/movie?include_adult=false&language=en-US&page=1",
-//     options
-//   );
+export const fetchSearchId = async (id) => {
+  const { data } = await axios.get(`/3/movie/${id}?language=en-US`, options);
 
-//   return data;
-// };
+  return data;
+};
+
+export const fetchCastById = async (id) => {
+  const { data } = await axios.get(
+    `/3/movie/${id}/credits?language=en-US`,
+    options
+  );
+
+  return data;
+};
+
+export const fetchReviewsById = async (id) => {
+  const { data } = await axios.get(
+    `/3/movie/${id}/reviews?language=en-US&page=1`,
+    options
+  );
+
+  return data;
+};

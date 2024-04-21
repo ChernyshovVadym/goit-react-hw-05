@@ -10,6 +10,7 @@ const SearchBar = ({ onSubmit }) => {
     if (!query.trim()) {
       return toast.error("Can not be empty");
     }
+    // console.log("query", query);
     onSubmit(query);
     setQuery("");
   };
@@ -24,7 +25,7 @@ const SearchBar = ({ onSubmit }) => {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies..."
           value={query}
           required
           onChange={handleChange}
