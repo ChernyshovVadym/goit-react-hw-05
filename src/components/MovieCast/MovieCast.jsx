@@ -18,11 +18,11 @@ const MovieCast = () => {
         setLoading(true);
         const data = await fetchCastById(params.movieId);
 
-        // console.log(data);
-        setCast(data.results);
+        console.log(data);
+        setCast(data.cast);
       } catch (error) {
         setError(error);
-        // console.log(error);
+        console.log(error);
       } finally {
         setLoading(false);
       }

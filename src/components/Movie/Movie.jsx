@@ -8,6 +8,7 @@ const Movie = ({ movie }) => {
       <h4>{movie.tite}</h4>
       <p>{movie.overview}</p>
       <p>User Score: {movie.vote_average}</p>
+
       <p>Genres:</p>
       {movie.genres && (
         <p>
