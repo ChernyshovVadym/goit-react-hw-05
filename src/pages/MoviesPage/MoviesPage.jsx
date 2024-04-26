@@ -6,6 +6,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import MoviesList from "../../components/MovieList/MoviesList";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
 import { useSearchParams } from "react-router-dom";
+import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [error, setError] = useState(false);
@@ -47,7 +48,7 @@ const MoviesPage = () => {
   };
 
   return (
-    <div>
+    <div className={css.div}>
       <SearchBar onSubmit={onSeacrh} />
       {loading && <Loader />}
       {error && <ErrorMessage />}

@@ -5,6 +5,8 @@ import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import CastList from "../CastList/CastList";
 
+import css from "./MovieCast.module.css";
+
 const MovieCast = () => {
   const [casts, setCast] = useState([]);
   const [error, setError] = useState(false);
@@ -31,7 +33,7 @@ const MovieCast = () => {
     // console.log(movies);
   }, [params.movieId]);
   return (
-    <div>
+    <div className={css.div}>
       <CastList casts={casts} />
       {error && <ErrorMessage />}
       {loading && <Loader />}

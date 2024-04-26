@@ -1,0 +1,16 @@
+.btn {
+color: #3a24ff;
+background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+margin: 20px auto;
+border: none;
+border-radius: 8px;
+}
+
+.btn:hover {
+  color: #24ff66;
+}
+
+
+.ul {
+  list-style: none;
+}

@@ -1,0 +1,19 @@
+.ul {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+/* justify-content: center; */
+gap: 8px;
+list-style: none;
+margin: 0 auto;
+}
+
+.div {
+    margin: 0 auto;
+}
+
+
+.li {
+    width: calc((100% - 40px ) / 5);
+}

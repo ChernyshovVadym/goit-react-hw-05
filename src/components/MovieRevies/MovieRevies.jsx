@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 // import Reviews from "../Reviews/Reviews";
 import ReviewsList from "../ReviewsList/ReviewsList";
 
+import css from "./MovieRevies.module.css";
+
 const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(false);
@@ -32,7 +34,7 @@ const MovieReviews = () => {
     // console.log(movies);
   }, [params.movieId]);
   return (
-    <div>
+    <div className={css.div}>
       <ReviewsList reviews={reviews} />
       {error && <ErrorMessage />}
       {loading && <Loader />}

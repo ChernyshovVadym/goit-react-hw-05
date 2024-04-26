@@ -1,0 +1,21 @@
+.header {
+display: flex;
+align-items: center;
+}
+
+.form {
+width: 150px;
+display: flex;
+gap: 24px;
+}
+
+.input {
+margin-right: 32px;
+}
+
+
+.button {
+border: 1px solid black ;
+border-radius: 2px;
+background-color: #49e22b;
+}

@@ -3,8 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 // import MoviesList from "../../components/MovieList/MoviesList";
 import { fetchSearchId } from "../../services/api";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import Movie from "../../components/Movie/Movie";
+import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
@@ -13,7 +20,7 @@ const MovieDetailsPage = () => {
   // const location = useLocation();
   // const goBackLink = useRef(location.state?.from ?? "/movies");
   const params = useParams();
-
+  const navigate = useNavigate();
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? "/movies");
   const previousHref = useRef(null);
@@ -40,17 +47,32 @@ const MovieDetailsPage = () => {
     fetchMovie();
   }, [movieId, backLink]);
 
-  return (
-    <div>
-      <Link to={backLink.current}>Go Back</Link>
-      <Movie movie={movie} />
-      {loading && <Loader />}
-      {error && <ErrorMessage />}
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
+  const goBack = () => {
+    navigate(-1);
+  };
 
+  return (
+    <>
+      <div className={css.div}>
+        <button className={css.btn} onClick={goBack}>
+          Go Back
+        </button>{" "}
+        {/* Use a button for the action */}
+        {/* <Link to={backLink.current}>Go Back</Link> */}
+        <Movie movie={movie} />
+        {loading && <Loader />}
+        {error && <ErrorMessage />}
+        <div className={css.divLink}>
+          <Link to="cast" className={css.link}>
+            Cast
+          </Link>
+          <Link to="reviews" className={css.link}>
+            Reviews
+          </Link>
+        </div>
+      </div>
       <Outlet />
-    </div>
+    </>
   );
 };
 

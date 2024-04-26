@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.div {
+  width: 1000px;
+  background: linear-gradient(#c9fffa, rgb(226, 226, 226));
+  margin: 0 auto;
+  border-radius: 8px;
+  min-height: 550px;
+  padding: 20px;
+}

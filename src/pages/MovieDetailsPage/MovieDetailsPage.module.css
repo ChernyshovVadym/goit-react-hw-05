@@ -1,0 +1,35 @@
+
+
+.div {
+display: flex;
+gap: 12px;
+align-items: center;
+justify-content: center;
+margin: 0 auto; 
+flex-direction: column;
+}
+
+
+.link {
+  text-decoration: none;
+  color: #0c0b02;
+  background: linear-gradient(to bottom, #f4f81a, #fa6de7);
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: block;
+margin: 16px auto;
+
+}
+
+
+.divLink {
+  display: flex;
+  gap: 32px;
+}
