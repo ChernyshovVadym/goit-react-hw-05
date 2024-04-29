@@ -16,7 +16,9 @@ const MovieDetailsPage = lazy(() =>
 // import MovieReviews from "./components/MovieRevies/MovieRevies";
 
 const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
-const MovieReviews = lazy(() => import("./components/MovieRevies/MovieRevies"));
+const MovieReviews = lazy(() =>
+  import("./components/MovieReviews/MovieReviews")
+);
 
 const App = () => {
   return (

@@ -3,13 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 // import MoviesList from "../../components/MovieList/MoviesList";
 import { fetchSearchId } from "../../services/api";
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import Movie from "../../components/Movie/Movie";
 import css from "./MovieDetailsPage.module.css";
 
@@ -20,7 +14,7 @@ const MovieDetailsPage = () => {
   // const location = useLocation();
   // const goBackLink = useRef(location.state?.from ?? "/movies");
   const params = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? "/movies");
   const previousHref = useRef(null);
@@ -31,7 +25,7 @@ const MovieDetailsPage = () => {
 
   useEffect(() => {
     previousHref.current = backLink;
-
+    console.log(previousHref);
     const fetchMovie = async () => {
       try {
         setError(false);
@@ -47,16 +41,16 @@ const MovieDetailsPage = () => {
     fetchMovie();
   }, [movieId, backLink]);
 
-  const goBack = () => {
-    navigate(-1);
-  };
+  // const goBack = () => {
+  //   navigate(-1);
+  // };
 
   return (
     <>
       <div className={css.div}>
-        <button className={css.btn} onClick={goBack}>
-          Go Back
-        </button>{" "}
+        <Link to={backLinkHref.current} className={css.link}>
+          Go back
+        </Link>
         {/* Use a button for the action */}
         {/* <Link to={backLink.current}>Go Back</Link> */}
         <Movie movie={movie} />

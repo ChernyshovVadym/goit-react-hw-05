@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 // import Reviews from "../Reviews/Reviews";
 import ReviewsList from "../ReviewsList/ReviewsList";
 
-import css from "./MovieRevies.module.css";
+import css from "./MovieReviews.module.css";
 
 const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
